@@ -22,7 +22,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2F4F4F;">
             <div class="container">
                 <a class="navbar-brand" href="#">WebDev CA2</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -39,26 +39,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center mt-5">
-                    <h1>CA2: Data Manipulation & Validation</h1>
-                    <p class="lead">This is Part 1.1</p>
+                    <h1 class="masthead-heading text-uppercase mb-0">CA2: Data Manipulation & Validation</h1>
+                    <p class="masthead-subheading font-weight-light mb-0">Part 1.2</p>
                 </div>
                 <div class="col-lg-2 order-1 mb-3 d-flex flex-column gap-2 mx-auto align-items-stretch">
-                    <button name="1.1.1" class="btn btn-success btn-block" data-sql="SELECT * "FROM" employees LIMIT 100" onClick="reply_click(this)">1.1</button>
-                    <button name="1.1.2" class="btn btn-success btn-block">1.1</button>
-                    <button name="1.1.3" class="btn btn-success btn-block">1.1</button>
+                    <button name="1.2.1" class="btn btn-success btn-block" data-sql="SELECT COUNT (emp_id) FROM employees WHERE hire_date = '1991-05-01' LIMIT 100" onClick="reply_click(this)">1.2.1</button>
+                    <button name="1.2.2" class="btn btn-success btn-block" data-sql="SELECT employees.emp_id, COUNT(titles.title) AS NumberofTitles FROM employees INNER JOIN titles on employees.emp_id = titles.emp_id GROUP BY titles.emp_id HAVING COUNT(title) > 2 LIMIT 100" onClick="reply_click(this)">1.2.2</button>
+                    <button name="1.2.3" class="btn btn-success btn-block" data-sql="SELECT * FROM employees WHERE gender LIKE '%f%' LIMIT 100" onClick="reply_click(this)">1.2.3</button>
+                    <button name="1.2.4" class="btn btn-success btn-block" data-sql="SELECT emp_id, first_name, last_name FROM employees WHERE hire_date < '1991-05-01' AND last_name LIKE '%simmel%' LIMIT 100" onClick="reply_click(this)">1.2.4</button>
+                    <button name="1.2.5" class="btn btn-success btn-block" data-sql="SELECT COUNT (emp_id) AS totalWithB FROM employees WHERE last_name LIKE 'B%' LIMIT 100" onClick="reply_click(this)">1.2.5</button>
+                    <button name="1.2.6" class="btn btn-success btn-block" data-sql="CREATE TABLE emp_training ( trainer_id int AUTO_INCREMENT, first_name varchar(30) NOT NULL, last_name varchar(30) NOT NULL, t_module varchar(20), PRIMARY KEY (trainer_id))" onClick="reply_click(this)">1.2.6</button>
+                    <button name="1.2.7" class="btn btn-success btn-block" data-sql="INSERT INTO emp_training (first_name, last_name, t_module) VALUES ('Joe', 'Bloggs', 'Google Docs'), ('Fred', 'Bloggs', 'Google Sheets')" onClick="reply_click(this)">1.2.7</button>
+                    <button name="1.2.8" class="btn btn-success btn-block" data-sql="DROP TABLE emp_training" onClick="reply_click(this)">1.2.8</button>
+                    <button name="1.2.9" class="btn btn-success btn-block" data-sql="ALTER TABLE employees ADD email_address varchar(20)" onClick="reply_click(this)">1.2.9</button>
+                    <button name="1.2.10" class="btn btn-success btn-block" data-sql="UPDATE employees SET email_address = 'gfacello@gmail.com' WHERE emp_id = 10001" onClick="reply_click(this)">1.2.10</button>
                 </div>
                 <div class="col-lg-10 order-2 border-success">
-                    <textarea id="commands" class="mb-5">TEXT
+                    <textarea id="commands" class="mb-5">
                     </textarea>
                     <div class="d-grid gap-2 mt-2 mb-1">
                         <button class="btn btn-primary" type="button" id="execute">Execute</button>
                             <input type="file" class="form-control" id="dbfile" />
                     </div>
                     <div id="error" class="error"></div>
-                    <pre id="output">Results will be displayed here</pre>
+                    <pre id="output"></pre>
                 </div>
             </div>
         </div>
+        <footer class="bg-primary text-white text-center text-lg-start fixed-bottom">
+            
+            <div class="text-center p-3" style="background-color: #2F4F4F;">
+              CCT College - Janaina Moreira
+            </div>
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
